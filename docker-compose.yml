@@ -1,5 +1,21 @@
 version: '3.9'
 services:
+  frontend-nginx:
+      build:
+          context: ./frontend/docker
+      volumes:
+          - ./frontend:/var/www/frontend
+      depends_on:
+          - php-fpm-api
+      ports:
+          - "8080:80"
+  
+  php-fpm-frontend:
+    build:
+      context:  ./frontend/docker/php-fpm
+    volumes: 
+      - ./frontend:/var/www/frontend
+
   nginx-api:
     build:
       context:  ./api/docker/nginx
