@@ -1,0 +1,8 @@
+{
+    "name": "alcoweb/rabbit",
+    "type": "project",
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*"
+    }
+}

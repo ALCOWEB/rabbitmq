@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  nginx-api:
+    build:
+      context:  ./api/docker/nginx
+    ports: 
+      - 8081:80
+    volumes: 
+      - ./api:/var/www/api
+
+  php-fpm-api:
+    build:
+      context:  ./api/docker/php-fpm
+    volumes: 
+      - ./api:/var/www/api
+
+  php-cli-api:
+    build:
+      context:  ./api/docker/php-cli
+    volumes: 
+      - ./api:/var/www/api
+
+    
